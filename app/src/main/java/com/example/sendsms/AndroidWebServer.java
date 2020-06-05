@@ -25,17 +25,20 @@ public class AndroidWebServer extends NanoHTTPD {
 
     @Override
     public Response serve(IHTTPSession session) {
-        String msg = "<html><body><h1>Hello server</h1>\n";
+        String msg = "<html><body><h1>Send SMS server</h1>\n";
         Map<String, String> parms = session.getParms();
-        if (parms.get("username") == null) {
+
+        if (parms.get("number") == null) {
             msg += "<form action='?' method='get'>\n";
-            msg += "<p>Your name: <input type='text' name='username'></p>\n";
+            msg += "<p>Your number: <input type='text' name='number'></p>\n";
+            msg += "<p>Your sms body: <input type='text' name='smsbody'></p>\n";
             msg += "</form>\n";
         } else {
-            msg += "<p>Hello, " + parms.get("username") + "!</p>";
-            System.out.println("Sending SMS ....");
+            msg += "<p>Hello, " + parms.get("number") + "!</p>";
+            System.out.println(parms.get("number"));
+            System.out.println(parms.get("smsbody"));
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("6362485197", null, "sms message", null, null);
+            smsManager.sendTextMessage(parms.get("number"), null, parms.get("smsbody"), null, null);
 
 
 
