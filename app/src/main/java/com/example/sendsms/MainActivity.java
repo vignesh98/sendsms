@@ -13,10 +13,8 @@ import fi.iki.elonen.NanoHTTPD;
 
 public class MainActivity extends AppCompatActivity {
 
+   // public static String a;
 
-    //public static String val;
-    //String vals = AndroidWebServer.val;
-    //String a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         Button clickButton2 = (Button) findViewById(R.id.stopbutton);
         int port = 8080;
         final AndroidWebServer androidWebServer = new AndroidWebServer(port);
-       // a = androidWebServer.temp;
+
+
         clickButton1.setOnClickListener( new View.OnClickListener() {
 
             @Override
@@ -44,16 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-               String va = androidWebServer.val;
-                //Toast.makeText(getApplicationContext(),temp2,Toast.LENGTH_SHORT).show();
-                System.out.println(va);
+
                androidWebServer.stop();
 
             }
         });
 
     }
-
 
 
 }
