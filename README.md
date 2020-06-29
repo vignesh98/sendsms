@@ -1,5 +1,5 @@
 # sendsms
- An app to send sms from the data recieved from a server
+ An app to send sms from the data recieved from a server. This uses SMSManager in the Android to send a message without opening the default messaging app,it sends it via background service. This was used for a OTP, booking confirmation module for a project
 </br>
 <img src = "https://github.com/vignesh98/sendsms/blob/master/Githubpics/servernotstarted.jpg" width=150>
 <img src = "https://github.com/vignesh98/sendsms/blob/master/Githubpics/serverstarted.jpg" width=150>
